@@ -139,7 +139,7 @@ a:focus {
   background: linear-gradient(130deg, #231a6f, #0f054c);
   
   text-align: center;
-  padding: 10px 0;
+  padding: 8px 0;
   width: 100%;
   position: fixed;
   z-index: 1000;
@@ -315,7 +315,7 @@ a:focus {
   padding: 10px 15px;
   background-color: #40e9e0;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -330,7 +330,7 @@ a:focus {
   padding: 10px 15px;
   background-color: #000000;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -404,6 +404,46 @@ a:focus {
   height: 20px;
   background-color: #40e9e0;
 }
+
+
+.top_mover_section {
+    position: relative;
+}
+
+.top_mover_section .box {
+  background: linear-gradient(130deg, #6c65ac, #0f054c);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-top: 45px;
+
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.top_mover_section .box .img-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 125px;
+    min-width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
+  }
 
 .service_section {
   position: relative;
@@ -479,7 +519,7 @@ a:focus {
   padding: 10px 45px;
   background-color: #40e9e0;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -521,7 +561,7 @@ a:focus {
   padding: 10px 45px;
   background-color: #40e9e0;
   color: #ffffff;
-  border-radius: 0px;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -905,9 +945,9 @@ a:focus {
   text-align: center;
   display: inline-block;
   padding: 10px 55px;
-  background-color: #00bbf0;
+  background-color: #40e9e0;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -927,7 +967,7 @@ a:focus {
 
 .footer_section p {
   color: #00204a;
-  padding: 25px 0;
+  padding: 8px 0;
   margin: 0;
 }
 
