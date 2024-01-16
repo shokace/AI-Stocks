@@ -530,7 +530,7 @@ a:focus {
 }
 
 .about_section {
-  background-color: #00204a;
+  background-color: #06014b;
   color: #ffffff;
 }
 
@@ -649,7 +649,7 @@ a:focus {
 /*team section */
 .team_section {
   text-align: center;
-  background-color: #00204a;
+  background-color: #06014b;
   color: #ffffff;
 }
 
@@ -822,8 +822,8 @@ a:focus {
 
 /* client section end */
 .info_section {
-  background-color: #00204a;
-  color: #ffffff;
+    background: linear-gradient(130deg, #0f054c,#231a6f);
+    color: #ffffff;
   padding: 45px 0 15px 0;
 }
 
