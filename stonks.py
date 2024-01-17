@@ -15,7 +15,7 @@ if crypto_data:
     top_crypto = datafetch.top_mover(crypto_data)
     #print(top_crypto)
 else:
-    print("Comprehensive data could not be fetched." + crypto_data)
+    print("Comprehensive data could not be fetched.")
 
 
 
@@ -23,12 +23,11 @@ else:
 # Find the top mover
 if crypto_data:
     if top_crypto:
-        crypto_name = top_crypto['name']
+        crypto_name = top_crypto['id']
         #print(crypto_name)
         granular_data = datafetch.fetch_granular_data(crypto_name)
-        #dataplot.plotdata(granular_data) 
-        #^^^This has issues...^^^ check the format of the json in granular data. make sure it's formatted correctly in dataplot.py. should fix everything. 
-        #################################################################
+        print(granular_data)
+        dataplot.plotdata(granular_data) 
     else:
         print("No top mover found.")
 else:

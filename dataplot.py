@@ -22,4 +22,4 @@ def plotdata(data):
     plt.gcf().autofmt_xdate()  # Rotate date labels for better readability
 
     plt.legend()
-    plt.show()
+    #plt.show()
