@@ -1,26 +1,25 @@
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+import plotly.graph_objects as go
 from datetime import datetime
 
 def plotdata(data):
 
-    # Extract timestamps and prices
+    # Extract timestamps and price
     timestamps = [datetime.fromtimestamp(ts/1000) for ts, price in data['prices']]
-    #print(timestamps)
     prices = [price for ts, price in data['prices']]
-    print(prices)
 
-    # Create the plot
-    plt.figure(figsize=(10, 6))
-    plt.plot(timestamps, prices, label='Price', color='green')
-    plt.xlabel('Time')
-    plt.ylabel('Price')
-    plt.title('Price over Time')
+    
+    # Extract timestamps and prices
 
-    # Format the date on the x-axis
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M:%S'))
-    plt.gca().xaxis.set_major_locator(mdates.DayLocator())
-    plt.gcf().autofmt_xdate()  # Rotate date labels for better readability
+    # Create the plot with Plotly
+    fig = go.Figure(data=go.Scatter(x=timestamps, y=prices, mode='lines', name='Price', line=dict(color='lightseagreen')))
 
-    plt.legend()
-    plt.show()
+    # Set plot layout
+    fig.update_layout(
+        title='Price over Time',
+        xaxis_title='Time',
+        yaxis_title='Price'
+        )
+        
+
+    # Show the plot
+    fig.show()
