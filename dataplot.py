@@ -1,4 +1,3 @@
-import json
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
@@ -6,12 +5,14 @@ from datetime import datetime
 def plotdata(data):
 
     # Extract timestamps and prices
-    timestamps = [datetime.fromtimestamp(ts/1000.0) for ts, price in data['prices']]
+    timestamps = [datetime.fromtimestamp(ts/1000) for ts, price in data['prices']]
+    #print(timestamps)
     prices = [price for ts, price in data['prices']]
+    print(prices)
 
     # Create the plot
     plt.figure(figsize=(10, 6))
-    plt.plot(timestamps, prices, label='Price', color='blue')
+    plt.plot(timestamps, prices, label='Price', color='green')
     plt.xlabel('Time')
     plt.ylabel('Price')
     plt.title('Price over Time')
@@ -22,4 +23,4 @@ def plotdata(data):
     plt.gcf().autofmt_xdate()  # Rotate date labels for better readability
 
     plt.legend()
-    #plt.show()
+    plt.show()

@@ -10,12 +10,12 @@ app = Flask(__name__)
 tm_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
 
 # Fetch data
-crypto_data = datafetch.fetch_crypto_data(tm_url)
-if crypto_data:
+try:
+    crypto_data = datafetch.fetch_crypto_data(tm_url)
     top_crypto = datafetch.top_mover(crypto_data)
     #print(top_crypto)
-else:
-    print("Comprehensive data could not be fetched.")
+except Exception as _:
+    print("Base data could not be fetched.")
 
 
 
@@ -26,8 +26,9 @@ if crypto_data:
         crypto_name = top_crypto['id']
         #print(crypto_name)
         granular_data = datafetch.fetch_granular_data(crypto_name)
-        print(granular_data)
-        dataplot.plotdata(granular_data) 
+        #breakpoint()
+        #print(granular_data)
+        dataplot.plotdata(granular_data)
     else:
         print("No top mover found.")
 else:
@@ -43,7 +44,7 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=6900)
 
 
 
