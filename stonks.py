@@ -26,9 +26,9 @@ if crypto_data:
         crypto_name = top_crypto['id']
         #print(crypto_name)
         granular_data = datafetch.fetch_granular_data(crypto_name)
-        #breakpoint()
+        
         #print(granular_data)
-        dataplot.plotdata(granular_data)
+        fig = dataplot.plotdata(crypto_name, granular_data)
     else:
         print("No top mover found.")
 else:
@@ -44,7 +44,7 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=6900)
+    app.run(debug=False, host="0.0.0.0", port=6900)
 
 
 
