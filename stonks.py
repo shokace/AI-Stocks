@@ -28,7 +28,7 @@ if crypto_data:
         granular_data = datafetch.fetch_granular_data(crypto_name)
         
         #print(granular_data)
-        dataplot.plotdata(crypto_name, granular_data)
+        fig = dataplot.plotdata(crypto_name, granular_data)
     else:
         print("No top mover found.")
 else:
