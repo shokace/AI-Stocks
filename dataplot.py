@@ -25,15 +25,17 @@ def plotdata(c_name, data):
     xaxis=dict(
         showline=True,
         showgrid=False,
-        showticklabels=True,
+        showticklabels=False
+        
         
         
     ),
     yaxis=dict(
         showline=True,
         showgrid=False,
-        showticklabels=True,
+        showticklabels=False,
         range = [buffered_min_price, buffered_max_price]
+        
         
     ),
     autosize=True,
