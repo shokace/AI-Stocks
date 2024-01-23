@@ -22,6 +22,7 @@ def plotdata(c_name, data):
     # Set plot layout
     fig.update_layout(
     title=c_name,
+    paper_bgcolor='rgba(0,0,0,0)',
     xaxis=dict(
         showline=True,
         showgrid=False,
@@ -50,4 +51,6 @@ def plotdata(c_name, data):
     #breakpoint()
     # Show the plot
     fig.show()
-    return fig
+    graph_html = fig.to_html(full_html=False)
+
+    return graph_html
