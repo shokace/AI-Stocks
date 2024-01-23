@@ -39,7 +39,7 @@ else:
 #init render template
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', graph_html=fig)
 
 
 

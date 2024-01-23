@@ -439,11 +439,17 @@ a:focus {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    width: 125px;
+    width: 225px;
     min-width: 75px;
-    height: 75px;
+    height: 125px;
     margin-bottom: 15px;
   }
+
+.graph-container {
+  margin: auto; 
+  display: flex;
+  position: relative;
+}
 
 .service_section {
   position: relative;
