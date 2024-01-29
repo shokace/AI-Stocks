@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 from datetime import datetime
 
+
 def plotdata(c_name, data):
 
     # Extract timestamps and price
@@ -29,7 +30,6 @@ def plotdata(c_name, data):
         showticklabels=False
         
         
-        
     ),
     yaxis=dict(
         showline=True,
@@ -50,7 +50,8 @@ def plotdata(c_name, data):
     )
     #breakpoint()
     # Show the plot
-    fig.show()
-    graph_html = fig.to_html(full_html=False)
+    config = {'displayModeBar': False}
+    fig.show(config=config)
+    graph_html = fig.to_html(full_html=False, config=config)
 
     return graph_html
