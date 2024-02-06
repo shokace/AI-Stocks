@@ -51,7 +51,7 @@ def plotdata(c_name, data):
     #breakpoint()
     # Show the plot
     config = {'displayModeBar': False}
-    fig.show(config=config)
+    #fig.show(config=config)
     graph_html = fig.to_html(full_html=False, config=config)
 
     return graph_html
