@@ -5,7 +5,7 @@ import dataplot
 import hmac
 import hashlib
 import subprocess
-import dotenv
+import dotenv import load_dotenv
 import os
 
 
@@ -16,7 +16,8 @@ app = Flask(__name__)
 tm_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
 
 #Github key comes from the .env file
-GITHUB_SECRET = os.getenv('GITHUB_KEY')
+load_dotenv()
+GITHUB_SECRET = os.getenv('GITHUB_KEY').encode()
 REPO_PATH = os.getenv('REPO_PATH')
 
 # Fetch data
@@ -68,7 +69,7 @@ def webhook():
         abort(403)
 
     # If the signature is valid, pull the latest code and restart the application
-    subprocess.call([f'{REPO_PATH}../deploy.sh'])   
+    subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])   
 
     return 'OK', 200
 
