@@ -73,7 +73,10 @@ def webhook():
         abort(403)
 
     # If the signature is valid, pull the latest code and restart the application
-    subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])   
+    try:
+        subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")   
 
     return 'OK', 200
 
