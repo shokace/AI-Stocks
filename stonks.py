@@ -5,7 +5,7 @@ import dataplot
 import hmac
 import hashlib
 import subprocess
-import dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 
 
