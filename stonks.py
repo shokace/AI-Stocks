@@ -20,7 +20,7 @@ load_dotenv()
 
 GITHUB_SECRET = os.getenv('GITHUB_SECRET')
 GITHUB_SECRET_BYTES = GITHUB_SECRET.encode('utf-8')
-print(GITHUB_SECRET_BYTES)
+#print(GITHUB_SECRET_BYTES)
 REPO_PATH = os.getenv('REPO_PATH')
 
 
@@ -60,6 +60,7 @@ def index():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     # Validate the request
+    print("WEBHOOK'D")
     signature = request.headers.get('X-Hub-Signature')
     sha_name, signature = signature.split('=')
     print(sha_name, signature)
