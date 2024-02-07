@@ -1,6 +1,6 @@
 <h1>What We Do</h1>
 
-<a href="vailut.com">Vailut.com's</a> core focus is to bring as much information from the web and distil it all into one package. Cryptocurrencies often entail a varying degree of risk when investing, often including scams found on X and other platforms.
+<a href="https://vailut.com">Vailut.com's</a> core focus is to bring as much information from the web and distil it all into one package. Cryptocurrencies often entail a varying degree of risk when investing, often including scams found on X and other platforms.
 We want to minimize that risk, warning users when we detect potential fraud in the crypto-sphere.
 
 This is a public repo. You can see exactly how I will process the data, and this can allow others to audit my results. 
