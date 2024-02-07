@@ -21,4 +21,3 @@ Databases. Make user accounts, track currencies you want, and get notifications 
 
 Listen to changes from the community, build from the basis and learn new things.
 
-
