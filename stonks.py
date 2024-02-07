@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, abort
+from threading import Thread
 import datetime as datetime
 import datafetch
 import dataplot
@@ -74,12 +75,16 @@ def webhook():
     if not hmac.compare_digest(str(mac.hexdigest()), str(signature)):
         abort(403)
 
-    # If the signature is valid, run deployment
-    try:
-        subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])
-        print("DONE")
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")  
+    def deployment():
+        # If the signature is valid, run deployment
+        try:
+            subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])
+            print("DONE")
+        except subprocess.CalledProcessError as e:
+            print(f"Error: {e}")  
+
+    thread = Thread(target=deployment)
+    thread.start()
 
     return 'OK', 200
 
