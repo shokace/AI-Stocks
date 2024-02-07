@@ -62,6 +62,7 @@ def webhook():
     # Validate the request
     signature = request.headers.get('X-Hub-Signature')
     sha_name, signature = signature.split('=')
+    print(sha_name, signature)
     if sha_name != 'sha1':
         abort(501)
 
