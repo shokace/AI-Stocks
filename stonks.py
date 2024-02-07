@@ -1,13 +1,23 @@
+from flask import Flask, render_template, request, abort
 import datetime as datetime
 import datafetch
 import dataplot
+import hmac
+import hashlib
+import subprocess
+import dotenv
+import os
 
-from flask import Flask, render_template
+
 
 app = Flask(__name__)
 
 # CoinGecko API endpoint for top 100 cryptocurrencies
 tm_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+
+#Github key comes from the .env file
+GITHUB_SECRET = os.getenv('GITHUB_KEY')
+REPO_PATH = os.getenv('REPO_PATH')
 
 # Fetch data
 try:
@@ -40,6 +50,27 @@ else:
 @app.route('/')
 def index():
     return render_template('index.html', graph_html=fig)
+
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    # Validate the request
+    signature = request.headers.get('X-Hub-Signature')
+    sha_name, signature = signature.split('=')
+    if sha_name != 'sha1':
+        abort(501)
+
+    # HMAC requires the key to be bytes, but data is string
+    mac = hmac.new(GITHUB_SECRET, msg=request.data, digestmod=hashlib.sha1)
+
+    # Verify the signature
+    if not hmac.compare_digest(str(mac.hexdigest()), str(signature)):
+        abort(403)
+
+    # If the signature is valid, pull the latest code and restart the application
+    subprocess.call([f'{REPO_PATH}../deploy.sh'])   
+
+    return 'OK', 200
 
 
 
