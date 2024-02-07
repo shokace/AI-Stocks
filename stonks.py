@@ -76,7 +76,8 @@ def webhook():
 
     # If the signature is valid, run deployment
     try:
-        subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])
+        #subprocess.call(['/bin/bash', f'{REPO_PATH}/../deploy.sh'])
+        print("DONE")
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")  
 
