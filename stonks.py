@@ -17,8 +17,11 @@ tm_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=m
 
 #Github key comes from the .env file
 load_dotenv()
-GITHUB_SECRET = os.getenv('GITHUB_KEY').encode()
+
+GITHUB_SECRET = os.getenv('GITHUB_SECRET')
+GITHUB_SECRET.encode()
 REPO_PATH = os.getenv('REPO_PATH')
+
 
 # Fetch data
 try:
