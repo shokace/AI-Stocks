@@ -19,7 +19,8 @@ tm_url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=m
 load_dotenv()
 
 GITHUB_SECRET = os.getenv('GITHUB_SECRET')
-GITHUB_SECRET.encode()
+GITHUB_SECRET_BYTES = GITHUB_SECRET.encode('utf-8')
+print(GITHUB_SECRET_BYTES)
 REPO_PATH = os.getenv('REPO_PATH')
 
 
@@ -65,7 +66,7 @@ def webhook():
         abort(501)
 
     # HMAC requires the key to be bytes, but data is string
-    mac = hmac.new(GITHUB_SECRET, msg=request.data, digestmod=hashlib.sha1)
+    mac = hmac.new(GITHUB_SECRET_BYTES, msg=request.data, digestmod=hashlib.sha1)
 
     # Verify the signature
     if not hmac.compare_digest(str(mac.hexdigest()), str(signature)):
