@@ -5,6 +5,7 @@ from datetime import datetime
 
 def plotdata(c_name, data):
 
+
     # Extract timestamps and price
     timestamps = [datetime.fromtimestamp(ts/1000) for ts, price in data['prices']]
     prices = [price for ts, price in data['prices']]
@@ -27,8 +28,10 @@ def plotdata(c_name, data):
         dragmode=False,
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
-        title=c_name,
+        title=c_name.capitalize(),
         paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(size=15, color="white"),
+        title_x=0.5,
         xaxis=dict(
             showline=True,
             showgrid=False,
@@ -43,9 +46,7 @@ def plotdata(c_name, data):
         ),
 
         autosize=True,
-        margin=dict(
-            autoexpand=True
-        ),
+        margin=dict(l=10, r=10, t=36, b=20),
 
         showlegend=False,
         hovermode='x unified',
@@ -58,7 +59,7 @@ def plotdata(c_name, data):
         # Show the plot
     config ={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],  # Explicitly remove zoom and pan controls
             'displayModeBar': False,  # Optionally show the modebar, but without zoom/pan controls
-            'responsive': False}
+            'responsive': True}
 
     #fig.show(config=config)
     graph_html = plot(fig, output_type='div', include_plotlyjs=True, config=config)

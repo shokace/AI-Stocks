@@ -447,8 +447,9 @@ a:focus {
 
 .graph-container {
   margin: auto; 
-  display: flex;
   position: relative;
+  width: 100%; /* Full width of its parent */
+  height: auto; /* Auto height based on aspect ratio */
 }
 
 .service_section {
