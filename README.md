@@ -13,8 +13,6 @@ Front end design and initial push for metrics. Intuitive layouts make people sta
 
 Add a predictive model that scrapes news sources and keywords for cryptocurrency talks on platforms. Show this on front end with no sign in required.
 
-*<i>Currently getting CI working with the server. After that, I can start pushing updates with the predictive model.</i>
-
 <h3>Phase III:</h3>
 
 Databases. Make user accounts, track currencies you want, and get notifications as risks break out. 
