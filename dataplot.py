@@ -25,7 +25,7 @@ def plotdata(c_name, data):
     # Set plot layout
     fig.update_layout(
         clickmode='event+select',
-        dragmode=False,
+        dragmode='pan',
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
         title=c_name.capitalize(),
@@ -33,20 +33,20 @@ def plotdata(c_name, data):
         font=dict(size=15, color="white"),
         title_x=0.5,
         xaxis=dict(
-            showline=True,
+            showline=False,
             showgrid=False,
             showticklabels=False
         ),
 
         yaxis=dict(
-            showline=True,
+            showline=False,
             showgrid=False,
             showticklabels=False,
             range = [buffered_min_price, buffered_max_price]
         ),
 
         autosize=True,
-        margin=dict(l=10, r=10, t=36, b=20),
+        margin=dict(l=0, r=0, t=36, b=20),
 
         showlegend=False,
         hovermode='x unified',
