@@ -85,6 +85,7 @@ def plotdata(c_name, data):
         # Show the plot
     config ={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],  # Explicitly remove zoom and pan controls
             'displayModeBar': False,  # Optionally show the modebar, but without zoom/pan controls
+            'staticPlot': False,
             'responsive': True}
 
     #fig.show(config=config)
