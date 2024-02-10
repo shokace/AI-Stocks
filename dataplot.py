@@ -47,8 +47,6 @@ def plotdata(c_name, data):
     # Set plot layout
         
     fig.update_layout(
-        clickmode='event+select',
-        dragmode=False,
         yaxis_tickformat = determine_hover_precision(),
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
@@ -86,6 +84,7 @@ def plotdata(c_name, data):
     config ={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],  # Explicitly remove zoom and pan controls
             'displayModeBar': False,  # Optionally show the modebar, but without zoom/pan controls
             'staticPlot': False,
+            'scrollZoom': False,
             'responsive': True}
 
     #fig.show(config=config)
