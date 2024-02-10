@@ -10,22 +10,46 @@ def plotdata(c_name, data):
     timestamps = [datetime.fromtimestamp(ts/1000) for ts, price in data['prices']]
     prices = [price for ts, price in data['prices']]
 
+
     buffered_min_price = min(prices)-(max(prices)* 0.05)
     buffered_max_price = max(prices)+(max(prices)* 0.05)
+    buffer_diff = (buffered_max_price - buffered_min_price)
+    
     start_price = prices[0]
     end_price = prices[-1]
-    # Extract timestamps and prices
+
+    def determine_hover_precision():
+        if buffer_diff > 1000:
+            return "$,.2f"  # 2 decimal places for large ranges
+        elif buffer_diff > 1:
+            return "$,.4f"  # 4 decimal places for moderate ranges
+        else:
+            return "$,.8f"  # 8 decimal places for small ranges
+    
+    #print("FORMAT: ", determine_hover_precision())
 
     # Create the plot with Plotly
     if(start_price <= end_price):      
-        fig = go.Figure(data=go.Scatter(x=timestamps, y=prices, fill='tozeroy', mode='lines', line=dict(color='lightseagreen')))
+        fig = go.Figure(data=go.Scatter(x=timestamps,
+                                        y=prices, 
+                                        fill='tozeroy', 
+                                        mode='lines', 
+                                        line=dict(color='lightseagreen'), 
+                                        hovertemplate='%{y:'+ determine_hover_precision() +'}<extra></extra>'))
     else:
-        fig = go.Figure(data=go.Scatter(x=timestamps, y=prices, fill='tozeroy', mode='lines', line=dict(color='red')))
+        fig = go.Figure(data=go.Scatter(x=timestamps,
+                                        y=prices, 
+                                        fill='tozeroy', 
+                                        mode='lines', 
+                                        line=dict(color='red'), 
+                                        hovertemplate='%{y:'+ determine_hover_precision() +'}<extra></extra>'))
 
     # Set plot layout
+        
     fig.update_layout(
         clickmode='event+select',
-        dragmode='pan',
+        dragmode=False,
+        yaxis_tickformat = determine_hover_precision(),
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
         title=c_name.capitalize(),
@@ -42,6 +66,8 @@ def plotdata(c_name, data):
             showline=False,
             showgrid=False,
             showticklabels=False,
+            tickprefix="$",
+            
             range = [buffered_min_price, buffered_max_price]
         ),
 

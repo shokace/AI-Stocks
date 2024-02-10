@@ -1,11 +1,9 @@
 from flask import Flask, render_template, request, abort
-from threading import Thread
+import schedule
+import time
 import datetime as datetime
 import datafetch
 import dataplot
-import hmac
-import hashlib
-import subprocess
 from dotenv import load_dotenv
 import os
 
@@ -26,6 +24,7 @@ REPO_PATH = os.getenv('REPO_PATH')
 
 
 # Fetch data
+
 try:
     crypto_data = datafetch.fetch_crypto_data(tm_url)
     top_crypto = datafetch.top_mover(crypto_data)
@@ -34,12 +33,14 @@ except Exception as _:
     print("Base data could not be fetched.")
 
 
+#schedule.every(5).minutes.do(datafetch.fetch_crypto_data(tm_url))
 
 
 # Find the top mover
 if crypto_data:
     if top_crypto:
         crypto_name = top_crypto['id']
+        #crypto_name = 'bitcoin'
         #print(crypto_name)
         granular_data = datafetch.fetch_granular_data(crypto_name)
         
