@@ -392,7 +392,7 @@ a:focus {
 }
 
 .slider_section .carousel-indicators li {
-  background-color: #ffffff;
+  background-color: #d3d3d3;
   width: 12px;
   height: 12px;
   border-radius: 100%;
@@ -424,7 +424,6 @@ a:focus {
           align-items: center;
   text-align: center;
   margin-top: 45px;
-
   padding: 20px;
   border-radius: 5px;
 }
@@ -450,11 +449,10 @@ a:focus {
   position: relative;
   width: 100%; /* Full width of its parent */
   height: auto; /* Auto height based on aspect ratio */
-}
+  }
 
 .service_section {
   position: relative;
-  
 }
 
 .service_section .box {
@@ -473,7 +471,7 @@ a:focus {
   background-color: #f8f8f9;
   padding: 20px;
   border-radius: 5px;
-}
+  }
 
 .service_section .box .img-box {
   display: -webkit-box;

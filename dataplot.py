@@ -48,6 +48,8 @@ def plotdata(c_name, data):
         
     fig.update_layout(
         yaxis_tickformat = determine_hover_precision(),
+        dragmode='pan',
+        selectdirection='h',
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
         title=c_name.capitalize(),
@@ -70,10 +72,9 @@ def plotdata(c_name, data):
         ),
 
         autosize=True,
-        margin=dict(l=0, r=0, t=36, b=20),
-
+        margin=dict(l=0, r=0, t=36, b=26),
         showlegend=False,
-        hovermode='x unified',
+        hovermode='x',
         plot_bgcolor = "#06014b")
     
 
@@ -81,13 +82,14 @@ def plotdata(c_name, data):
 
         #breakpoint()
         # Show the plot
-    config ={'modeBarButtonsToRemove': ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],  # Explicitly remove zoom and pan controls
-            'displayModeBar': False,  # Optionally show the modebar, but without zoom/pan controls
+    config ={'displayModeBar': False,  # Optionally show the modebar, but without zoom/pan controls
             'staticPlot': False,
             'scrollZoom': False,
-            'responsive': True}
+            'responsive': True,
+            }
 
     #fig.show(config=config)
     graph_html = plot(fig, output_type='div', include_plotlyjs=True, config=config)
+    
 
     return graph_html
