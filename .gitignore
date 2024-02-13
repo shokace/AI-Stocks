@@ -1,3 +1,4 @@
 .env
 __pycache__/
 AI-Stonks/__pycache__
+backupStorage/backupGraph.html
