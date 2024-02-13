@@ -3,6 +3,10 @@ from plotly.offline import plot
 from datetime import datetime
 
 
+
+
+
+
 def plotdata(c_name, data):
 
 
@@ -14,14 +18,16 @@ def plotdata(c_name, data):
     buffered_min_price = min(prices)-(max(prices)* 0.05)
     buffered_max_price = max(prices)+(max(prices)* 0.05)
     buffer_diff = (buffered_max_price - buffered_min_price)
-    
+    print(buffer_diff)
     start_price = prices[0]
     end_price = prices[-1]
+    percentageChange = round(start_price/end_price, 2)
+
 
     def determine_hover_precision():
-        if buffer_diff > 1000:
+        if buffer_diff > 1:
             return "$,.2f"  # 2 decimal places for large ranges
-        elif buffer_diff > 1:
+        elif buffer_diff > .01:
             return "$,.4f"  # 4 decimal places for moderate ranges
         else:
             return "$,.8f"  # 8 decimal places for small ranges
@@ -45,6 +51,8 @@ def plotdata(c_name, data):
                                         hovertemplate='%{y:'+ determine_hover_precision() +'}<extra></extra>'))
 
     # Set plot layout
+    c_name = c_name.capitalize()
+    combined_title = c_name + " +" + str(percentageChange) + "%"
         
     fig.update_layout(
         yaxis_tickformat = determine_hover_precision(),
@@ -52,10 +60,11 @@ def plotdata(c_name, data):
         selectdirection='h',
         xaxis_fixedrange=True,  # Prevents zooming on the x-axis
         yaxis_fixedrange=True,  # Prevents zooming on the y-axis
-        title=c_name.capitalize(),
+        title=combined_title,
         paper_bgcolor='rgba(0,0,0,0)',
         font=dict(size=15, color="white"),
         title_x=0.5,
+        
         xaxis=dict(
             showline=False,
             showgrid=False,
@@ -67,7 +76,6 @@ def plotdata(c_name, data):
             showgrid=False,
             showticklabels=False,
             tickprefix="$",
-            
             range = [buffered_min_price, buffered_max_price]
         ),
 
@@ -75,7 +83,8 @@ def plotdata(c_name, data):
         margin=dict(l=0, r=0, t=36, b=26),
         showlegend=False,
         hovermode='x',
-        plot_bgcolor = "#06014b")
+        plot_bgcolor = "#06014b"
+    )
     
 
 
@@ -90,6 +99,11 @@ def plotdata(c_name, data):
 
     #fig.show(config=config)
     graph_html = plot(fig, output_type='div', include_plotlyjs=True, config=config)
-    
+
+
+
+    file_path = 'backupStorage/backupGraph.html'
+    with open(file_path, 'w') as file:
+        file.write(graph_html)
 
     return graph_html
