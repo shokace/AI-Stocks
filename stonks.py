@@ -46,7 +46,7 @@ def periodic_fetch():
         else:
             print("Failed to fetch data.")
         
-        time.sleep(600)  # Wait for 10 minutes
+        time.sleep(301)  # Wait for 5 min and 1 sec. Graph shows up in 5 min intervals anyways.
 
 
 #init render template
