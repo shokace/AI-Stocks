@@ -1,13 +1,20 @@
-# gunicorn.conf.py
+import multiprocessing
 
-# Specify the address and port for Gunicorn to listen on
-bind = '127.0.0.1:8000'
+# Bind to localhost:8000
+bind = "127.0.0.1:8000"
 
-# Number of worker processes Gunicorn should spawn
-workers = 2
+# Set number of workers based on CPU cores
+workers = multiprocessing.cpu_count() * 2 + 1
 
+# Set worker class to gthread
+worker_class = "gthread"
 
-app = 'stonks:app'
+# Set worker threads
+threads = 4
 
-# Enable capturing output to display in console
-capture_output = True
+# Log file locations
+errorlog = "/home/petarelectro/Vailut/error.log"
+accesslog = "/home/petarelectro/Vailut/access.log"
+
+# Log level
+loglevel = "info"
