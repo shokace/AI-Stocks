@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.INFO)
+logging.info("This is an info message")
 
 def periodic_fetch():
     while True:
@@ -50,6 +51,7 @@ def index():
     return render_template('index.html', graph_html=defaultFig)
 
 if __name__ == "__main__":
+    logging.info("This is an info message in __main__")
     t = threading.Thread(target=periodic_fetch)
     t.daemon = True  # This makes the thread terminate when the main program exits
     t.start()  # Start the thread
