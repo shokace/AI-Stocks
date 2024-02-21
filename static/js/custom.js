@@ -35,7 +35,7 @@ $(".client_owl-carousel").owlCarousel({
 });
 
 function fetchAndUpdateGraph() {
-    fetch('vailut.com/update-graph')
+    fetch('update-graph')
       .then(response => response.text())
       .then(html => {
         document.querySelector('.graph-container').innerHTML = html;
