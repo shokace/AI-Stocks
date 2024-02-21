@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 from dotenv import load_dotenv
 import datetime as datetime
 import logging
@@ -17,7 +17,11 @@ def index():
     with open(file_path, 'r') as file:
         defaultFig = file.read()
 
-    return render_template('index.html', graph_html=defaultFig)
+    response = make_response(render_template('index.html', graph_html=defaultFig))
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 if __name__ == "__main__":
     logging.info("This is an info message in __main__")
