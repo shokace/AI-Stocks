@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .layout_padding {
   padding: 90px 0;
 }
