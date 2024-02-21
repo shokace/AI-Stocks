@@ -34,3 +34,18 @@ $(".client_owl-carousel").owlCarousel({
     }
 });
 
+function fetchAndUpdateGraph() {
+    fetch('/home/petarelectro/Vailut/backupStorage/backupGraph.html')
+      .then(response => response.text())
+      .then(html => {
+        document.querySelector('.graph-container').innerHTML = html;
+      })
+      .catch(error => console.error('Error fetching updated graph:', error));
+  }
+  
+  // Set an interval to update the graph periodically, e.g., every 5 minutes
+  setInterval(fetchAndUpdateGraph, 300000); // 300000 milliseconds = 5 minutes
+  
+  // Optionally, fetch and update the graph immediately on page load
+  document.addEventListener('DOMContentLoaded', fetchAndUpdateGraph);
+

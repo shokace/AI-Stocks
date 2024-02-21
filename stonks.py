@@ -1,7 +1,8 @@
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, send_from_directory
 from dotenv import load_dotenv
 import datetime as datetime
 import logging
+import os
 
 load_dotenv()
 
@@ -17,11 +18,13 @@ def index():
     with open(file_path, 'r') as file:
         defaultFig = file.read()
 
-    response = make_response(render_template('index.html', graph_html=defaultFig))
-    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
+    return render_template('index.html', graph_html=defaultFig)
+
+@app.route('/update-graph')
+def update_graph():
+    directory = os.path.join(app.root_path, 'backupStorage')
+    return send_from_directory(directory, 'backupGraph.html')
+
 
 if __name__ == "__main__":
     logging.info("This is an info message in __main__")
