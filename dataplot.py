@@ -21,7 +21,9 @@ def plotdata(c_name, data):
     print(buffer_diff)
     start_price = prices[0]
     end_price = prices[-1]
-    percentageChange = round(start_price/end_price, 2)
+    increase = end_price-start_price
+
+    percentageChange = round(100*(increase/start_price), 2)
 
 
     def determine_hover_precision():
