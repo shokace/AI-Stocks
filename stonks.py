@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, make_response
 from dotenv import load_dotenv
 import datetime as datetime
 import logging
@@ -23,7 +23,15 @@ def index():
 @app.route('/update-graph')
 def update_graph():
     directory = os.path.join(app.root_path, 'backupStorage')
-    return send_from_directory(directory, 'backupGraph.html')
+
+    response = make_response(send_from_directory(directory, 'backupGraph.html'))
+
+    # Set headers to prevent caching
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    
+    return response
 
 
 if __name__ == "__main__":
