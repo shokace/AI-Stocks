@@ -11,7 +11,7 @@ def plotdata(c_name, data):
 
 
     # Extract timestamps and price
-    timestamps = [datetime.fromtimestamp(ts/1000) for ts, price in data['prices']]
+    timestamps = [datetime.fromtimestamp(ts/720) for ts, price in data['prices']]
     prices = [price for ts, price in data['prices']]
 
 
