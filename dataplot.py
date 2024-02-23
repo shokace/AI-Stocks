@@ -29,7 +29,7 @@ def plotdata(c_name, data):
     def determine_hover_precision():
         if buffer_diff > 1:
             return "$,.2f"  # 2 decimal places for large ranges
-        elif buffer_diff > .5:
+        elif buffer_diff > .01:
             return "$,.4f"  # 4 decimal places for moderate ranges
         else:
             return "$,.8f"  # 8 decimal places for small ranges
