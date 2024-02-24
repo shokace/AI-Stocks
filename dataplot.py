@@ -18,12 +18,12 @@ def plotdata(c_name, data):
     buffered_min_price = min(prices)-(max(prices)* 0.05)
     buffered_max_price = max(prices)+(max(prices)* 0.05)
     buffer_diff = (buffered_max_price - buffered_min_price)
-    print(buffer_diff)
     start_price = prices[0]
     end_price = prices[-1]
     increase = end_price-start_price
 
     percentageChange = round(100*(increase/start_price), 2)
+    print(end_price)
 
 
     def determine_hover_precision():

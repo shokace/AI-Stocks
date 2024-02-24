@@ -7,20 +7,20 @@ import os
 
 
 
-current_unix_time = int(time.time())
-#print("Current time: UNIX#", current_unix_time)
-yesterday_unix_time = current_unix_time - 86400
+
 load_dotenv()
 
+
 def fetch_granular_data(crypto_name):
+    current_unix_time = int(time.time())
+    #print("Current time: UNIX#", current_unix_time)
+    yesterday_unix_time = current_unix_time - 86400
     base_url = "https://api.coingecko.com/api/v3/coins/{}/market_chart/range?vs_currency=usd&from={}&to={}&precision=8&x_cg_demo_api_key={}"   
     coingecko_token = os.getenv('COINGECKO_KEY')
     url = base_url.format(crypto_name, yesterday_unix_time, current_unix_time, coingecko_token)
-    print(url)
 
     response = requests.get(url)
     if response.status_code == 200:
-        print("COINGECKO API = 200")
         return response.json()
     else:
         # Handle errors (e.g., invalid cryptocurrency name, network issues)
