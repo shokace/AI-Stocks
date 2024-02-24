@@ -65,10 +65,10 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  ">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-                            </li>
                             <li class="nav-item inactive">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
                                 <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
                             </li>
 
@@ -82,106 +82,44 @@
         </header>
         <!-- end header section -->
         <!-- slider section -->
-        <section class="slider_section ">
-            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container ">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="detail-box">
-                                        <h1>
-                                            Predict <br>
-                                            With Power.
-                                        </h1>
-                                        <p>
-                                            Harnessing advanced AI metrics to analyze and forecast cryptocurrency market
-                                            trends, empowering investors with data-driven insights for informed trading
-                                            decisions.
-                                        </p>
-                                        <div class="btn-box">
-                                            <a href="#About" class="btn1">
-                                                Read More
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="img-box">
-                                        <img src="/static/images/slider-img.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
+        <section id="About" class="about_section layout_padding">
+            <div class="">
+                <div class="heading_container heading_center">
+                    <h2>
+                        About <span>Us</span>
+                    </h2>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="img-box">
+                            <img src="/static/images/about-img.png" alt="">
                         </div>
                     </div>
-                    <div class="carousel-item ">
-                        <div class="container ">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="detail-box">
-                                        <h1>
-                                            Act With <br>
-                                            Confidence.
-                                        </h1>
-                                        <p>
-                                            Get immediate updates in market trends so you can stay ahead of the game and
-                                            retain a clear view of potential market shifts along with opportunities for
-                                            optimal investment strategies.
-                                        </p>
-                                        <div class="btn-box">
-                                            <a href="#About" class="btn1">
-                                                Read More
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="img-box">
-                                        <img src="/static/images/slider-img.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container ">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="detail-box">
-                                        <h1>
-                                            All Data. <br>
-                                            No Wasted Time.
-                                        </h1>
-                                        <p>
-                                            We comprehensively gather and analyze data from a wide array of sources,
-                                            including news outlets, online forums, and financial reports, to build the
-                                            most complete and accurate picture of future cryptocurrency market trends.
-                                        </p>
-                                        <div class="btn-box">
-                                            <a href="#About" class="btn1">
-                                                Read More
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="img-box">
-                                        <img src="/static/images/slider-img.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <h3>
+                                Humble Beginnings
+                            </h3>
+                            <p>
+    
+                            </p>
+                            <p>
+                                In the heart of Silicon Valley, a group of innovative youths, fueled by their firsthand experiences with the volatile nature of cryptocurrency investments, 
+                                banded together to forge a solution. <br><br>Each member, having navigated the highs and lows of digital currencies, shared a common vision: to empower others to make 
+                                informed decisions in the fast-paced crypto market. <br><br>This app, born from the collaboration of these enterprising minds, 
+                                leverages cutting-edge technology to provide <b>real-time insights, predictive analytics, and tailored advice</b>, effectively safeguarding users from the pitfalls that 
+                                often ensnare the unwary investor.
+                            </p>
+
                         </div>
                     </div>
                 </div>
-                <ol class="carousel-indicators">
-                    <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-                    <li data-target="#customCarousel1" data-slide-to="1"></li>
-                    <li data-target="#customCarousel1" data-slide-to="2"></li>
-                </ol>
             </div>
-
         </section>
-        <!-- end slider section -->
+        
     </div>
 
 
@@ -263,69 +201,9 @@
 
     <!-- end service section -->
 
-    <section class="top_mover_section layout_padding">
-        <div class="service_container">
-            <div class="container ">
-                <div class="heading_container heading_center">
-                    <h2>
-                        Today's <span>Top Mover</span>
-                    </h2>
+    
 
-                </div>
-                <div class="">
-                    
-                    <div class="box">
-                        <div class="graph-container">
-                            {{ graph_html|safe }}
-                            <footer>Powered by <a href="https://www.coingecko.com" target="_blank">CoinGecko</a>.
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- about section -->
-
-    <section id="About" class="about_section layout_padding">
-        <div class="container  ">
-            <div class="heading_container heading_center">
-                <h2>
-                    About <span>Us</span>
-                </h2>
-                <p>
-                    We sift through the data. You make the calls.
-                </p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="img-box">
-                        <img src="/static/images/about-img.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="detail-box">
-                        <h3>
-                            We Are Vailut
-                        </h3>
-                        <p>
-
-                        </p>
-                        <p>
-                            Our mission is to serve quality data from online sources and leverage artificial
-                            intelligence to provide accurate and condensed market updates, saving you time researching
-                            before making your financial decisions.
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 
 
