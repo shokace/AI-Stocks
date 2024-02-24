@@ -160,6 +160,11 @@ a:focus {
   color: #ffffff;
 }
 
+.moar_padding_pls{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .custom_nav-container {
   padding: 0;
 }
