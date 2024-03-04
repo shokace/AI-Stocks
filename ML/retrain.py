@@ -1,11 +1,13 @@
 import os
 import pandas as pd
 import glob
+import dotenv
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score
-import pickle
+
 
 def train(cv, model, cv_file_path, model_file_path):
     data_file_path = os.path.join("Datasets", "ytData")
@@ -45,7 +47,17 @@ def train(cv, model, cv_file_path, model_file_path):
 if __name__ == "__main__":
     cv = CountVectorizer()
     model = BernoulliNB()
-    cv_file = 'vectorizer.pkl'
-    model_file = 'detectionModel.pkl'
+    
+
+    if os.name == 'nt':
+        cv_file = '~/AI-Stocks/ML/Model/vectorizer.pkl'
+        model_file = '~/AI-Stocks/ML/Model/detectionModel.pkl'
+    else:
+        repo_path = os.getenv('REPO_PATH')
+        cv_file = repo_path + '~/ML/Model/vectorizer.pkl'
+        model_file = repo_path + '~/ML/Model/detectionModel.pkl'
+
+    model_file = os.path.expanduser(model_file)
+    cv_file = os.path.expanduser(cv_file)
 
     train(cv, model, cv_file, model_file)

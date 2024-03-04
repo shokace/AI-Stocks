@@ -4,3 +4,5 @@ AI-Stonks/__pycache__
 backupStorage/backupGraph.html
 app.log
 ML/Datasets
+ML/Model/detectionModel.pkl
+ML/Model/vectorizer.pkl
